@@ -16,10 +16,6 @@ if [ -z ${SONAR_PROJECT_VERSION+x} ]; then
   SONAR_PROJECT_VERSION=$CI_BUILD_ID
 fi
 
-if [ -z ${SONAR_GITLAB_PROJECT_ID+x} ]; then
-  SONAR_GITLAB_PROJECT_ID=$CI_PROJECT_ID
-fi
-
 if [ ! -z ${SONAR_PROJECT_KEY+x} ]; then
   COMMAND="$COMMAND -Dsonar.projectKey=$SONAR_PROJECT_KEY"
 fi
