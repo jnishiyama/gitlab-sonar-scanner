@@ -62,9 +62,9 @@ if [ -z ${SONAR_ANALYSIS_MODE+x} ]; then
 fi
 
 COMMAND="$COMMAND -Dsonar.analysis.mode=$SONAR_ANALYSIS_MODE"
-if [ $SONAR_ANALYSIS_MODE == "preview" ]; then
-  COMMAND="$COMMAND -Dsonar.issuesReport.console.enable=true"
-  COMMAND="$COMMAND -Dsonar.gitlab.failure_notification_mode=exit-code"
+if [ $SONAR_ANALYSIS_MODE == "issues" ]; then
+  # COMMAND="$COMMAND -Dsonar.issuesReport.console.enable=true"
+  # COMMAND="$COMMAND -Dsonar.gitlab.failure_notification_mode=exit-code"
 
   if [ ! -z ${CI_PROJECT_ID+x} ]; then
     COMMAND="$COMMAND -Dsonar.gitlab.project_id=$CI_PROJECT_ID"
