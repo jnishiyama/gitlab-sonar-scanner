@@ -66,8 +66,8 @@ if [ $SONAR_ANALYSIS_MODE == "preview" ]; then
   COMMAND="$COMMAND -Dsonar.issuesReport.console.enable=true"
   COMMAND="$COMMAND -Dsonar.gitlab.failure_notification_mode=exit-code"
 
-  if [ ! -z ${SONAR_GITLAB_PROJECT_ID+x} ]; then
-    COMMAND="$COMMAND -Dsonar.gitlab.project_id=$SONAR_GITLAB_PROJECT_ID"
+  if [ ! -z ${CI_PROJECT_ID+x} ]; then
+    COMMAND="$COMMAND -Dsonar.gitlab.project_id=$CI_PROJECT_ID"
   fi
 
   if [ ! -z ${CI_COMMIT_SHA+x} ]; then
