@@ -13,7 +13,7 @@ if [ -z ${SONAR_PROJECT_KEY+x} ]; then
 fi
 
 if [ -z ${SONAR_PROJECT_VERSION+x} ]; then
-  SONAR_PROJECT_VERSION=$CI_BUILD_ID
+  SONAR_PROJECT_VERSION=$CI_JOB_ID
 fi
 
 if [ ! -z ${SONAR_PROJECT_KEY+x} ]; then
@@ -74,6 +74,8 @@ if [ $SONAR_ANALYSIS_MODE == "issues" ]; then
     COMMAND="$COMMAND -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME"
   fi
 fi
+
+# unset still has to be set
 if [ $SONAR_ANALYSIS_MODE == "publish" ]; then
   unset CI_COMMIT_SHA
 fi
