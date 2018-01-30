@@ -79,7 +79,7 @@ if [ $SONAR_ANALYSIS_MODE == "issues" ]; then
   fi
 fi
 if [ $SONAR_ANALYSIS_MODE == "publish" ]; then
-  unset CI_BUILD_REF
+  unset CI_COMMIT_SHA
 fi
 
 $COMMAND $1
