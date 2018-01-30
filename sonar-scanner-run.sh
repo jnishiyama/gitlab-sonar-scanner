@@ -44,12 +44,12 @@ if [ ! -z "$SONAR_ENCODING" ]; then
   COMMAND="$COMMAND -Dsonar.sourceEncoding=$SONAR_ENCODING"
 fi
 
-if [ ! -z $CI_BUILD_REF ]; then
-  COMMAND="$COMMAND -Dsonar.gitlab.commit_sha=$CI_BUILD_REF"
+if [ ! -z $CI_COMMIT_SHA ]; then
+  COMMAND="$COMMAND -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA"
 fi
 
-if [ ! -z $CI_BUILD_REF_NAME ]; then
-  COMMAND="$COMMAND -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME"
+if [ ! -z $CI_COMMIT_REF_NAME ]; then
+  COMMAND="$COMMAND -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME"
 fi
 
 if [ ! -z $SONAR_BRANCH ]; then
