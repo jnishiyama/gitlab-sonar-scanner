@@ -1,0 +1,11 @@
+variables:
+    BASE_APP_NAME: gitlab-sonar-scanner
+
+stages:
+    - build
+
+build_image:
+    stage: build
+    script:
+        - docker build -t registry.mpharma.com:5000/$BASE_APP_NAME:latest .
+        - docker push registry.mpharma.com:5000/$BASE_APP_NAME:latest
